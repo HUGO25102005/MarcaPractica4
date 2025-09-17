@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <header class="border-bottom">
+        <div class="bg-danger text-white py-2">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <strong class="mr-3">MARCA</strong>
+                    <div class="dropdown">
+                        <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="editionMenu"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            ES
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="editionMenu">
+                            <a class="dropdown-item" href="#">ES</a>
+                            <a class="dropdown-item" href="#">EN</a>
+                            <a class="dropdown-item" href="#">MX</a>
+                            <a class="dropdown-item" href="#">US</a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <a href="#" class="text-white mr-3">CLUB MARCA</a>
+                    <a href="#" class="text-white">Iniciar sesión</a>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <div class="container">
+                <a class="navbar-brand font-weight-bold" href="#">Marca</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar"
+                    aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active"><a class="nav-link" href="#">Portada</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="futbolMenu" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fútbol</a>
+                            <div class="dropdown-menu" aria-labelledby="futbolMenu">
+                                <a class="dropdown-item" href="#">LALIGA EA Sports</a>
+                                <a class="dropdown-item" href="#">Champions</a>
+                                <a class="dropdown-item" href="#">Premier</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#">Motor</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Baloncesto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Polideportivo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Radio</a></li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Buscar</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <div class="bg-light border-top border-bottom">
+            <div class="container py-2 d-flex flex-wrap align-items-center">
+                <strong class="mr-3 text-danger">Es noticia:</strong>
+                <div class="d-flex flex-wrap">
+                    <a href="#" class="mr-3 text-dark">Vuelta a España</a>
+                    <a href="#" class="mr-3 text-dark">Mercado de fichajes</a>
+                    <a href="#" class="mr-3 text-dark">MotoGP</a>
+                    <a href="#" class="mr-3 text-dark">Calendario F1</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-4">
+        <div class="row">
+            <section class="col-lg-8">
+                <article class="mb-4">
+                    <div class="card border-0">
+                        <img class="card-img-top" src="assets/img/hero.jpg" alt="Noticia destacada">
+                        <div class="card-body p-0 pt-3">
+                            <span class="badge badge-danger">Fútbol</span>
+                            <h2 class="h3 font-weight-bold mt-2">Titular de la noticia principal de portada</h2>
+                            <p class="text-muted mb-0">Resumen breve de la noticia destacada para contextualizar al
+                                usuario.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <section class="mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h3 class="h5 mb-0">Fútbol</h3>
+                        <a href="#" class="text-danger small">Más fútbol</a>
+                    </div>
+                    <div class="card-deck">
+                        <div class="card">
+                            <img class="card-img-top" src="assets/img/card1.jpg" alt="">
+                            <div class="card-body">
+                                <span class="badge badge-secondary">LALIGA</span>
+                                <h4 class="h6 font-weight-bold">Titular de ejemplo</h4>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img class="card-img-top" src="assets/img/card2.jpg" alt="">
+                            <div class="card-body">
+                                <span class="badge badge-secondary">Champions</span>
+                                <h4 class="h6 font-weight-bold">Titular de ejemplo</h4>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img class="card-img-top" src="assets/img/card3.jpg" alt="">
+                            <div class="card-body">
+                                <span class="badge badge-secondary">Selección</span>
+                                <h4 class="h6 font-weight-bold">Titular de ejemplo</h4>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h3 class="h5 mb-0">Motor</h3>
+                        <a href="#" class="text-danger small">Más motor</a>
+                    </div>
+                    <div class="card-deck">
+                        <div class="card">
+                            <img class="card-img-top" src="assets/img/card4.jpg" alt="">
+                            <div class="card-body">
+                                <span class="badge badge-secondary">F1</span>
+                                <h4 class="h6 font-weight-bold">Titular de ejemplo</h4>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img class="card-img-top" src="assets/img/card5.jpg" alt="">
+                            <div class="card-body">
+                                <span class="badge badge-secondary">MotoGP</span>
+                                <h4 class="h6 font-weight-bold">Titular de ejemplo</h4>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img class="card-img-top" src="assets/img/card6.jpg" alt="">
+                            <div class="card-body">
+                                <span class="badge badge-secondary">WEC</span>
+                                <h4 class="h6 font-weight-bold">Titular de ejemplo</h4>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <aside class="col-lg-4">
+                <div class="mb-4">
+                    <h3 class="h6 text-uppercase text-muted">Tendencias</h3>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><a href="#" class="text-dark">Tema caliente 1</a></li>
+                        <li class="mb-2"><a href="#" class="text-dark">Tema caliente 2</a></li>
+                        <li class="mb-2"><a href="#" class="text-dark">Tema caliente 3</a></li>
+                        <li class="mb-2"><a href="#" class="text-dark">Tema caliente 4</a></li>
+                    </ul>
+                </div>
+                <div class="mb-4">
+                    <h3 class="h6 text-uppercase text-muted">Vídeos</h3>
+                    <div class="media mb-3">
+                        <img src="assets/img/thumb1.jpg" class="mr-3" width="96" height="54" alt="">
+                        <div class="media-body">
+                            <a href="#" class="text-dark d-block">Clip de ejemplo 1</a>
+                            <small class="text-muted">0:28 min.</small>
+                        </div>
+                    </div>
+                    <div class="media mb-3">
+                        <img src="assets/img/thumb2.jpg" class="mr-3" width="96" height="54" alt="">
+                        <div class="media-body">
+                            <a href="#" class="text-dark d-block">Clip de ejemplo 2</a>
+                            <small class="text-muted">1:12 min.</small>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white mt-4 pt-4 pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <h5>MARCA</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#" class="text-white-50">Publicidad</a></li>
+                        <li><a href="#" class="text-white-50">Ayuda</a></li>
+                        <li><a href="#" class="text-white-50">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h5>Deportes</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#" class="text-white-50">Fútbol</a></li>
+                        <li><a href="#" class="text-white-50">Motor</a></li>
+                        <li><a href="#" class="text-white-50">Baloncesto</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h5>Servicios</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#" class="text-white-50">Resultados</a></li>
+                        <li><a href="#" class="text-white-50">Clasificaciones</a></li>
+                        <li><a href="#" class="text-white-50">Calendarios</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h5>Redes</h5>
+                    <div>
+                        <a href="#" class="text-white-50 mr-3">Twitter</a>
+                        <a href="#" class="text-white-50 mr-3">Instagram</a>
+                        <a href="#" class="text-white-50">YouTube</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-white-50 small">© 2025 Proyecto Práctica</div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
