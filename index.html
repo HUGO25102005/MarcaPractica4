@@ -3,13 +3,623 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#dc3545">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="MARCA">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="MARCA">
+
+    <!-- Optimización para móviles -->
+    <meta name="format-detection" content="telephone=yes">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="width">
+
+    <!-- Prevenir zoom en inputs (iOS) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        media="(max-width: 768px)">
+
+    <!-- Preload crítico para móvil -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdn.worldvectorlogo.com">
+    <link rel="dns-prefetch" href="https://media.giphy.com">
 
     <!-- Bootstrap CSS (con SRI) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
 
     <title>MARCA - Noticias Deportivas</title>
+
+    <!-- Estilos personalizados para mejorar la apariencia -->
+    <style>
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .bg-gradient {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+        }
+
+        .mega-menu {
+            min-width: 300px;
+        }
+
+        .dropdown-header {
+            color: #dc3545 !important;
+            font-weight: bold !important;
+            font-size: 0.875rem;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #dc3545 !important;
+        }
+
+        /* ========================================
+           EXPERIENCIA MÓVIL AVANZADA - MOBILE FIRST
+           ======================================== */
+
+        /* Variables CSS para móvil */
+        :root {
+            --mobile-padding: 12px;
+            --mobile-margin: 8px;
+            --touch-target-min: 44px;
+            --mobile-font-scale: 0.9;
+            --mobile-line-height: 1.4;
+            --mobile-border-radius: 8px;
+            --mobile-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --mobile-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Optimizaciones globales para móvil */
+        @media (max-width: 480px) {
+
+            /* Smartphones pequeños */
+            html {
+                font-size: 14px;
+                -webkit-text-size-adjust: 100%;
+                -ms-text-size-adjust: 100%;
+            }
+
+            body {
+                line-height: var(--mobile-line-height);
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            /* Contenedores más compactos */
+            .container-fluid {
+                padding-left: var(--mobile-padding);
+                padding-right: var(--mobile-padding);
+            }
+
+            /* Headers más compactos y estables */
+            .bg-danger.py-2 {
+                padding-top: 6px !important;
+                padding-bottom: 6px !important;
+            }
+
+            .h4 {
+                font-size: 1rem !important;
+                margin-bottom: 0 !important;
+            }
+
+            /* Logo móvil simplificado */
+            .mobile-logo {
+                width: 28px !important;
+                height: 28px !important;
+            }
+
+            .mobile-logo .bg-danger {
+                font-size: 0.7rem !important;
+            }
+
+            /* Ocultar elementos secundarios en móvil pequeño */
+            .mobile-hide {
+                display: none !important;
+            }
+
+            /* Selector de edición compacto */
+            .dropdown-toggle {
+                font-size: 0.75rem !important;
+                padding: 2px 6px !important;
+                min-height: auto !important;
+            }
+
+            /* Header superior simplificado */
+            .header-top .d-flex {
+                flex-wrap: nowrap !important;
+                align-items: center !important;
+            }
+
+            .header-top .me-3 {
+                margin-right: 0.5rem !important;
+            }
+
+            /* Navbar más estable */
+            .navbar .container-fluid {
+                flex-wrap: nowrap !important;
+            }
+
+            .navbar .d-flex {
+                flex-wrap: nowrap !important;
+                white-space: nowrap;
+            }
+
+            /* Navegación optimizada */
+            .navbar {
+                padding: 0.5rem var(--mobile-padding);
+                min-height: 56px;
+            }
+
+            .offcanvas {
+                width: 85vw !important;
+                max-width: 320px;
+            }
+
+            .offcanvas-header {
+                padding: 1rem var(--mobile-padding);
+                border-bottom: 1px solid #dee2e6;
+            }
+
+            .offcanvas-body {
+                padding: var(--mobile-padding);
+            }
+
+            /* Touch targets optimizados */
+            .nav-link,
+            .btn,
+            .dropdown-item,
+            .badge {
+                min-height: var(--touch-target-min);
+                display: flex;
+                align-items: center;
+                padding: 12px 16px;
+                border-radius: var(--mobile-border-radius);
+                transition: var(--mobile-transition);
+            }
+
+            /* Botones más grandes y accesibles */
+            .btn {
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                box-shadow: var(--mobile-shadow);
+            }
+
+            .btn:active {
+                transform: scale(0.98);
+                transition: transform 0.1s ease;
+            }
+
+            /* Cards optimizadas para móvil */
+            .card {
+                border-radius: var(--mobile-border-radius);
+                box-shadow: var(--mobile-shadow);
+                margin-bottom: var(--mobile-margin);
+                border: none;
+            }
+
+            .card-body {
+                padding: var(--mobile-padding);
+            }
+
+            .card-header {
+                padding: var(--mobile-padding);
+                font-weight: 600;
+                font-size: 0.9rem;
+            }
+
+            /* Hero section móvil */
+            .display-5 {
+                font-size: 1.3rem !important;
+                line-height: 1.2;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .lead {
+                font-size: 0.9rem !important;
+                line-height: 1.3;
+                margin-bottom: 0.75rem !important;
+            }
+
+            /* Imágenes responsivas mejoradas */
+            .position-relative img {
+                height: 200px !important;
+                border-radius: var(--mobile-border-radius);
+            }
+
+            .card-img-top {
+                height: 160px !important;
+                object-fit: cover;
+                border-radius: var(--mobile-border-radius) var(--mobile-border-radius) 0 0;
+            }
+
+            /* Formularios móvil */
+            .form-control {
+                min-height: var(--touch-target-min);
+                font-size: 16px;
+                /* Previene zoom en iOS */
+                border-radius: var(--mobile-border-radius);
+                padding: 12px 16px;
+            }
+
+            .form-control:focus {
+                box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.25);
+                border-color: #dc3545;
+            }
+
+            /* Tablas responsivas */
+            .table {
+                font-size: 0.8rem;
+            }
+
+            .table td,
+            .table th {
+                padding: 0.5rem 0.25rem;
+                vertical-align: middle;
+            }
+
+            /* Badges y etiquetas */
+            .badge {
+                font-size: 0.7rem;
+                padding: 4px 8px;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+            }
+
+            /* Espaciado vertical optimizado */
+            .mb-4 {
+                margin-bottom: 1rem !important;
+            }
+
+            .mb-3 {
+                margin-bottom: 0.75rem !important;
+            }
+
+            .py-2 {
+                padding-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+            }
+
+            /* Sidebar oculto en móvil pequeño */
+            .d-none.d-lg-block {
+                display: none !important;
+            }
+        }
+
+        /* Smartphones medianos */
+        @media (min-width: 481px) and (max-width: 767px) {
+            html {
+                font-size: 15px;
+            }
+
+            .container-fluid {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .position-relative img {
+                height: 280px !important;
+            }
+
+            .card-img-top {
+                height: 180px !important;
+            }
+
+            .display-5 {
+                font-size: 1.6rem !important;
+            }
+
+            .lead {
+                font-size: 1rem !important;
+            }
+
+            .offcanvas {
+                width: 75vw !important;
+                max-width: 300px;
+            }
+
+            /* Header más espacioso en medianos */
+            .mobile-logo {
+                width: 32px !important;
+                height: 32px !important;
+            }
+
+            .h4 {
+                font-size: 1.1rem !important;
+            }
+
+            .dropdown-toggle {
+                font-size: 0.8rem !important;
+                padding: 4px 8px !important;
+            }
+        }
+
+        /* Tablets pequeñas */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .card-body {
+                padding: 1.25rem;
+            }
+
+            .position-relative img {
+                height: 320px !important;
+            }
+
+            /* Mostrar sidebar en tablets */
+            .d-none.d-lg-block {
+                display: block !important;
+            }
+        }
+
+        /* Tablets grandes */
+        @media (min-width: 992px) and (max-width: 1199px) {
+            .position-relative img {
+                height: 350px !important;
+            }
+        }
+
+        /* Orientación landscape en móviles */
+        @media (max-width: 767px) and (orientation: landscape) {
+            .position-relative img {
+                height: 180px !important;
+            }
+
+            .display-5 {
+                font-size: 1.2rem !important;
+            }
+
+            .lead {
+                font-size: 0.85rem !important;
+            }
+
+            .navbar {
+                padding: 0.25rem var(--mobile-padding);
+                min-height: 48px;
+            }
+        }
+
+        /* Animaciones para los videos */
+        .position-relative:hover .bi-play-fill,
+        .position-relative:hover .bi-play-circle-fill {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+
+        /* Estilo para el botón de búsqueda */
+        .btn-outline-danger:hover {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        /* Mejorar la apariencia de los badges */
+        .badge {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Sticky navbar mejorado */
+        .navbar {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hover effects para trending links */
+        .bg-light a:hover {
+            color: #dc3545 !important;
+            text-decoration: underline !important;
+        }
+
+        /* ========================================
+           ESTILOS MÓVILES ADICIONALES Y PWA
+           ======================================== */
+
+        /* Estilos para dispositivos móviles optimizados */
+        .mobile-optimized {
+            -webkit-tap-highlight-color: rgba(220, 53, 69, 0.2);
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .mobile-optimized * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .mobile-optimized a,
+        .mobile-optimized button,
+        .mobile-optimized .btn {
+            -webkit-tap-highlight-color: rgba(220, 53, 69, 0.2);
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        /* Navbar auto-hide en móvil */
+        .navbar {
+            transition: transform 0.3s ease-in-out;
+            will-change: transform;
+        }
+
+        /* Efectos de scroll mejorados */
+        .scrolling .navbar {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.95) !important;
+        }
+
+        /* Loading states para móvil */
+        .loading {
+            pointer-events: none;
+            opacity: 0.7;
+            position: relative;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #dc3545;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Toast personalizados para móvil */
+        .toast {
+            font-size: 0.875rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+        }
+
+        /* Botones flotantes para móvil */
+        .fab {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #dc3545;
+            color: white;
+            border: none;
+            box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 1.25rem;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(220, 53, 69, 0.6);
+        }
+
+        .fab:active {
+            transform: scale(0.95);
+        }
+
+        /* Mejoras específicas para iOS */
+        @supports (-webkit-overflow-scrolling: touch) {
+            body {
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .offcanvas {
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+
+        /* Mejoras para Android */
+        @media (max-width: 768px) {
+
+            /* Mejorar rendimiento en Android */
+            * {
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+            }
+
+            .card,
+            .btn,
+            .badge {
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+            }
+        }
+
+        /* Estados de carga y feedback */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Skeleton loading para móvil */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+        }
+
+        @keyframes skeleton-loading {
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        /* Mejoras de accesibilidad en móvil */
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+
+        /* Indicador de conexión offline */
+        .offline-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #ff6b6b;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.875rem;
+            z-index: 9999;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .offline-indicator.show {
+            transform: translateY(0);
+        }
+    </style>
 </head>
 
 <body>
@@ -20,13 +630,22 @@
             <div class="container-fluid">
                 <div class="row align-items-center">
                     <div class="col-12">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="d-flex align-items-center">
-                                <h1 class="h4 mb-0 fw-bold me-3">MARCA</h1>
-                                <div class="dropdown">
+                        <div class="d-flex justify-content-between align-items-center header-top">
+                            <div class="d-flex align-items-center flex-shrink-0">
+                                <div class="d-flex align-items-center me-2">
+                                    <div class="bg-white rounded-circle p-1 me-2 mobile-logo"
+                                        style="width: 40px; height: 40px;">
+                                        <div
+                                            class="bg-danger text-white rounded-circle d-flex align-items-center justify-content-center h-100">
+                                            <span class="fw-bold small">M</span>
+                                        </div>
+                                    </div>
+                                    <h1 class="h4 mb-0 fw-bold">MARCA</h1>
+                                </div>
+                                <div class="dropdown d-none d-sm-block">
                                     <button class="btn btn-sm btn-light dropdown-toggle" type="button"
                                         data-bs-toggle="dropdown" aria-expanded="false">
-                                        ES (España)
+                                        ES
                                     </button>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="#">ES (España)</a></li>
@@ -36,9 +655,11 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="d-flex align-items-center">
-                                <a href="#" class="text-white text-decoration-none me-3">Hazte socio de CLUB MARCA</a>
-                                <a href="#" class="text-white text-decoration-none">Iniciar sesión</a>
+                            <div class="d-flex align-items-center flex-shrink-0">
+                                <a href="#" class="text-white text-decoration-none me-2 d-none d-md-inline">Hazte
+                                    socio</a>
+                                <a href="#" class="text-white text-decoration-none d-none d-sm-inline">Iniciar
+                                    sesión</a>
                             </div>
                         </div>
                     </div>
@@ -59,46 +680,91 @@
                     <div class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle px-3" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">Fútbol</a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu mega-menu">
+                            <li class="dropdown-header fw-bold">España</li>
                             <li><a class="dropdown-item" href="#">LALIGA EA Sports</a></li>
-                            <li><a class="dropdown-item" href="#">Champions League</a></li>
-                            <li><a class="dropdown-item" href="#">Premier League</a></li>
+                            <li><a class="dropdown-item" href="#">Liga F</a></li>
+                            <li><a class="dropdown-item" href="#">LALIGA Hypermotion</a></li>
+                            <li><a class="dropdown-item" href="#">Copa del Rey</a></li>
                             <li><a class="dropdown-item" href="#">Selección Española</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li class="dropdown-header fw-bold">Internacional</li>
+                            <li><a class="dropdown-item" href="#">Champions League</a></li>
+                            <li><a class="dropdown-item" href="#">Europa League</a></li>
+                            <li><a class="dropdown-item" href="#">Premier League</a></li>
+                            <li><a class="dropdown-item" href="#">Serie A</a></li>
+                            <li><a class="dropdown-item" href="#">Bundesliga</a></li>
                         </ul>
                     </div>
                     <div class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle px-3" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">Baloncesto</a>
                         <ul class="dropdown-menu">
+                            <li class="dropdown-header fw-bold">España</li>
                             <li><a class="dropdown-item" href="#">Liga Endesa</a></li>
+                            <li><a class="dropdown-item" href="#">Liga Endesa femenina</a></li>
+                            <li><a class="dropdown-item" href="#">Copa del Rey</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li class="dropdown-header fw-bold">Internacional</li>
                             <li><a class="dropdown-item" href="#">NBA</a></li>
-                            <li><a class="dropdown-item" href="#">Eurobasket</a></li>
+                            <li><a class="dropdown-item" href="#">Euroliga</a></li>
+                            <li><a class="dropdown-item" href="#">Eurocup</a></li>
                         </ul>
                     </div>
                     <div class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle px-3" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">Motor</a>
                         <ul class="dropdown-menu">
+                            <li class="dropdown-header fw-bold">Coches</li>
                             <li><a class="dropdown-item" href="#">Fórmula 1</a></li>
-                            <li><a class="dropdown-item" href="#">MotoGP</a></li>
+                            <li><a class="dropdown-item" href="#">Fórmula E</a></li>
                             <li><a class="dropdown-item" href="#">WEC</a></li>
+                            <li><a class="dropdown-item" href="#">Indycar</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li class="dropdown-header fw-bold">Motos</li>
+                            <li><a class="dropdown-item" href="#">MotoGP</a></li>
+                            <li><a class="dropdown-item" href="#">Superbikes</a></li>
                         </ul>
                     </div>
                     <a class="nav-link px-3" href="#">Polideportivo</a>
-                    <a class="nav-link px-3" href="#">Radio MARCA</a>
-                    <a class="nav-link px-3" href="#">Gaming</a>
-                    <a class="nav-link px-3" href="#">Marca Coches</a>
+                    <a class="nav-link px-3" href="#">Coches</a>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle px-3" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">Más</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Radio MARCA</a></li>
+                            <li><a class="dropdown-item" href="#">Gaming</a></li>
+                            <li><a class="dropdown-item" href="#">Fantasy</a></li>
+                            <li><a class="dropdown-item" href="#">Agenda TV</a></li>
+                            <li><a class="dropdown-item" href="#">Bazar ofertas y regalos</a></li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="d-flex align-items-center">
-                    <form class="d-flex me-3">
+                    <form class="d-flex me-2 d-none d-sm-flex">
                         <input class="form-control form-control-sm" type="search" placeholder="Buscar"
-                            aria-label="Search">
-                        <button class="btn btn-outline-danger btn-sm ms-2" type="submit">
+                            aria-label="Search" style="min-width: 120px;">
+                        <button class="btn btn-outline-danger btn-sm ms-1" type="submit">
                             <i class="bi bi-search"></i>
                         </button>
                     </form>
-                    <small class="text-muted d-none d-md-block">18 de septiembre de 2025</small>
+                    <!-- Botón de búsqueda solo icono en móvil -->
+                    <button class="btn btn-outline-danger btn-sm d-sm-none me-2" type="button"
+                        onclick="alert('Función de búsqueda')">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <div class="d-none d-lg-block text-end">
+                        <small class="text-muted d-block">22 de septiembre de 2025</small>
+                        <small class="text-muted d-block">Actualizado a las <span id="current-time">10:54
+                                h.</span></small>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -109,13 +775,18 @@
                 <div class="d-flex flex-wrap align-items-center">
                     <strong class="text-danger me-3">Es noticia:</strong>
                     <div class="d-flex flex-wrap">
-                        <a href="#" class="text-dark text-decoration-none me-3 mb-1">Libres 2 F1</a>
-                        <a href="#" class="text-dark text-decoration-none me-3 mb-1">Mundial Atletismo hoy</a>
-                        <a href="#" class="text-dark text-decoration-none me-3 mb-1">Sorteo champions femenina</a>
-                        <a href="#" class="text-dark text-decoration-none me-3 mb-1">Rivales Real Madrid Champions</a>
-                        <a href="#" class="text-dark text-decoration-none me-3 mb-1">Real Madrid - Espanyol hora</a>
-                        <a href="#" class="text-dark text-decoration-none me-3 mb-1">Doncic Real Madrid</a>
-                        <a href="#" class="text-dark text-decoration-none me-3 mb-1">Partidos hoy Champions</a>
+                        <a href="#" class="text-dark text-decoration-none me-3 mb-1">Barca Getafe</a>
+                        <a href="#" class="text-dark text-decoration-none me-3 mb-1">Pichichi</a>
+                        <a href="#" class="text-dark text-decoration-none me-3 mb-1">Córdoba - Racing Santander</a>
+                        <a href="#" class="text-dark text-decoration-none me-3 mb-1">Elche CF - Real Oviedo</a>
+                        <a href="#" class="text-dark text-decoration-none me-3 mb-1">Guardiola</a>
+                        <a href="#" class="text-dark text-decoration-none me-3 mb-1">Málaga Cádiz</a>
+                        <a href="#" class="text-dark text-decoration-none me-3 mb-1">Dónde ver el Barca hoy</a>
+                        <a href="#" class="text-dark text-decoration-none me-3 mb-1">Atlético de Madrid</a>
+                        <a href="#" class="text-dark text-decoration-none me-3 mb-1">Pogacar</a>
+                        <a href="#" class="text-dark text-decoration-none me-3 mb-1">Ansu Fati</a>
+                        <a href="#" class="text-dark text-decoration-none me-3 mb-1">Carrera F1</a>
+                        <a href="#" class="text-dark text-decoration-none me-3 mb-1">Mundial de Atletismo</a>
                     </div>
                 </div>
             </div>
@@ -133,22 +804,53 @@
                         <a class="nav-link fw-bold text-danger" href="#">Portada</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Fútbol</a>
+                        <a class="nav-link fw-bold" href="#">Fútbol</a>
+                        <ul class="list-unstyled ps-3">
+                            <li><a class="nav-link py-1" href="#">LALIGA EA Sports</a></li>
+                            <li><a class="nav-link py-1" href="#">Champions League</a></li>
+                            <li><a class="nav-link py-1" href="#">Premier League</a></li>
+                            <li><a class="nav-link py-1" href="#">Selección Española</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Baloncesto</a>
+                        <a class="nav-link fw-bold" href="#">Baloncesto</a>
+                        <ul class="list-unstyled ps-3">
+                            <li><a class="nav-link py-1" href="#">Liga Endesa</a></li>
+                            <li><a class="nav-link py-1" href="#">NBA</a></li>
+                            <li><a class="nav-link py-1" href="#">Euroliga</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Motor</a>
+                        <a class="nav-link fw-bold" href="#">Motor</a>
+                        <ul class="list-unstyled ps-3">
+                            <li><a class="nav-link py-1" href="#">Fórmula 1</a></li>
+                            <li><a class="nav-link py-1" href="#">MotoGP</a></li>
+                            <li><a class="nav-link py-1" href="#">WEC</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Polideportivo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Coches</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Radio MARCA</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Gaming</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Fantasy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Agenda TV</a>
+                    </li>
+                    <li class="nav-item border-top pt-2 mt-2">
+                        <a class="nav-link text-muted small" href="#">Hazte socio de CLUB MARCA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-muted small" href="#">Iniciar sesión</a>
                     </li>
                 </ul>
             </div>
@@ -165,9 +867,8 @@
             <div class="row align-items-center">
                 <div class="col-md-8">
                     <div class="d-flex align-items-center">
-                        <img src="https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-original-577x577/s3/032024/caliente.mx_.jpg?ObaTTrHiy3GEncu1lmaUSWv3VzAcJTx.&itok=uU4Sx7ll" alt="Caliente.mx"
-                            style="height: 100px; object-fit: cover;"
-                            class="me-3">
+                        <img src="https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-original-577x577/s3/032024/caliente.mx_.jpg?ObaTTrHiy3GEncu1lmaUSWv3VzAcJTx.&itok=uU4Sx7ll"
+                            alt="Caliente.mx" style="height: 100px; object-fit: cover;" class="me-3">
                         <div>
                             <h3 class="h5 mb-1 fw-bold">Recibe de regalo $1,000 SIN DEPÓSITO</h3>
                             <p class="mb-0 small">¡Apostá ahora y ganá más!</p>
@@ -213,9 +914,8 @@
                     <!-- Banner Más Pequeño -->
                     <div class="card border-0 shadow-sm">
                         <div class="card-body p-2 text-center bg-warning">
-                            <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZW00ZGl5dnExcmM0OXR2MjI3ZXMxZ3luNDZ4M29uNnBpZHVvazN3bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/ojbjrWKUDfsM6JQ9Zz/giphy.gif" alt="Oferta"
-                                class="img-fluid"
-                                style="width: 100%; height: 120px; object-fit: cover;">
+                            <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZW00ZGl5dnExcmM0OXR2MjI3ZXMxZ3luNDZ4M29uNnBpZHVvazN3bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/ojbjrWKUDfsM6JQ9Zz/giphy.gif"
+                                alt="Oferta" class="img-fluid" style="width: 100%; height: 120px; object-fit: cover;">
                             <p class="small mb-0 mt-2 fw-bold">¡Aprovecha!</p>
                         </div>
                     </div>
@@ -226,6 +926,108 @@
             <div class="col-12 col-lg-8">
                 <!-- Contenedor delimitado para noticias -->
                 <div class="bg-white shadow-sm rounded p-4" style="min-height: 100vh;">
+
+                    <!-- Noticia Hero Principal -->
+                    <section class="mb-4">
+                        <article class="position-relative">
+                            <div class="row g-0">
+                                <div class="col-12">
+                                    <div class="position-relative">
+                                        <img src="/assets/barca.jpg" class="img-fluid w-100" alt="Noticia principal"
+                                            style="height: 400px; object-fit: cover;" loading="lazy">
+                                        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-25">
+                                        </div>
+                                        <div class="position-absolute bottom-0 start-0 w-100 p-4 text-white">
+                                            <div class="mb-2">
+                                                <span class="badge bg-danger fs-6 me-2">LA LIGA EA SPORTS</span>
+                                                <span class="small fw-bold">María oro puro</span>
+                                            </div>
+                                            <h1 class="display-5 fw-bold mb-3 text-shadow">
+                                                María oro puro
+                                            </h1>
+                                            <p class="lead mb-3 text-shadow">
+                                                La portada de hoy destaca el rendimiento excepcional de la atleta
+                                                española
+                                                en el Mundial de Atletismo, consolidándose como referente mundial.
+                                            </p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <small class="fw-bold">REDACCIÓN MARCA</small>
+                                                <small>190 comentarios</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </section>
+
+                    <!-- Noticias Secundarias -->
+                    <section class="row mb-4">
+                        <div class="col-md-6 mb-3">
+                            <article class="card border-0 shadow-sm h-100">
+                                <div class="row g-0 h-100">
+                                    <div class="col-4">
+                                        <img src="/assets/formula1.jpg" class="img-fluid rounded-start h-100"
+                                            alt="GP Azerbaiyán F1" style="object-fit: cover;">
+                                    </div>
+                                    <div class="col-8">
+                                        <div class="card-body p-3">
+                                            <span class="badge bg-secondary mb-2 small">GP AZERBAIYÁN F1</span>
+                                            <h3 class="card-title h6 fw-bold mb-2">Ahogado por Aston Martin</h3>
+                                            <p class="card-text text-muted small mb-0">El equipo británico domina en
+                                                Bakú.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <article class="card border-0 shadow-sm h-100">
+                                <div class="row g-0 h-100">
+                                    <div class="col-4">
+                                        <img src="/assets/haaland.jpg" class="img-fluid rounded-start h-100"
+                                            alt="Champions League" style="object-fit: cover;">
+                                    </div>
+                                    <div class="col-8">
+                                        <div class="card-body p-3">
+                                            <span class="badge bg-secondary mb-2 small">CHAMPIONS LEAGUE</span>
+                                            <h3 class="card-title h6 fw-bold mb-2">Haaland marca su gol 50</h3>
+                                            <p class="card-text text-muted small mb-0">El noruego alcanza un hito
+                                                histórico.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+
+                    <!-- Grid de Noticias Secundarias -->
+                    <section class="row mb-4">
+                        <div class="col-md-6 mb-3">
+                            <article class="card h-100 border-0 shadow-sm">
+                                <img src="/assets/madrid.jpg" class="card-img-top" alt="Champions League"
+                                    style="height: 200px; object-fit: cover;">
+                                <div class="card-body">
+                                    <span class="badge bg-secondary mb-2">Champions League</span>
+                                    <h3 class="card-title h5 fw-bold">Real madrid con paso firme</h3>
+                                    <p class="card-text text-muted small">Lluvia de goles en un partido contundente por
+                                        parte del madrid.</p>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <article class="card h-100 border-0 shadow-sm">
+                                <img src="/assets/max.jpg" class="card-img-top" alt="Fórmula 1"
+                                    style="height: 200px; object-fit: cover;">
+                                <div class="card-body">
+                                    <span class="badge bg-secondary mb-2">Fórmula 1</span>
+                                    <h3 class="card-title h5 fw-bold">Verstappen domina los libres en Singapur</h3>
+                                    <p class="card-text text-muted small">El piloto holandés se muestra intratable en el
+                                        circuito urbano.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
 
                     <!-- Sección de Resultados en Vivo -->
                     <section class="mb-4">
@@ -266,8 +1068,7 @@
                                                 class="d-flex align-items-center justify-content-between p-3 border rounded">
                                                 <div class="d-flex align-items-center">
                                                     <img src="https://cdn.worldvectorlogo.com/logos/real-betis.svg"
-                                                        alt="Betis" class="me-2"
-                                                        style="width:24px; height:24px;">
+                                                        alt="Betis" class="me-2" style="width:24px; height:24px;">
                                                     <span class="fw-bold">Betis</span>
                                                 </div>
                                                 <div class="text-center">
@@ -287,8 +1088,7 @@
                                                 class="d-flex align-items-center justify-content-between p-3 border rounded">
                                                 <div class="d-flex align-items-center">
                                                     <img src="https://cdn.worldvectorlogo.com/logos/real-madrid-c-f.svg"
-                                                        alt="Real Madrid" class="me-2"
-                                                        style="width:24px; height:24px;">
+                                                        alt="Real Madrid" class="me-2" style="width:24px; height:24px;">
                                                     <span class="fw-bold">Real Madrid</span>
                                                 </div>
                                                 <div class="text-center">
@@ -298,8 +1098,7 @@
                                                 <div class="d-flex align-items-center">
                                                     <span class="fw-bold">Espanyol</span>
                                                     <img src="https://cdn.worldvectorlogo.com/logos/espanyol.svg"
-                                                        alt="Espanyol" class="ms-2"
-                                                        style="width:24px; height:24px;">
+                                                        alt="Espanyol" class="ms-2" style="width:24px; height:24px;">
                                                 </div>
                                             </div>
                                         </div>
@@ -312,8 +1111,7 @@
                                                 class="d-flex align-items-center justify-content-between p-3 border rounded">
                                                 <div class="d-flex align-items-center">
                                                     <img src="https://cdn.worldvectorlogo.com/logos/milan-acm.svg"
-                                                        alt="Lecce" class="me-2"
-                                                        style="width:24px; height:24px;">
+                                                        alt="Lecce" class="me-2" style="width:24px; height:24px;">
                                                     <span class="fw-bold">Milan</span>
                                                 </div>
                                                 <div class="text-center">
@@ -323,8 +1121,7 @@
                                                 <div class="d-flex align-items-center">
                                                     <span class="fw-bold">Juventus</span>
                                                     <img src="https://cdn.worldvectorlogo.com/logos/juventus-4.svg"
-                                                        alt="Cagliari" class="ms-2"
-                                                        style="width:24px; height:24px;">
+                                                        alt="Cagliari" class="ms-2" style="width:24px; height:24px;">
                                                 </div>
                                             </div>
                                         </div>
@@ -337,8 +1134,7 @@
                                                 class="d-flex align-items-center justify-content-between p-3 border rounded">
                                                 <div class="d-flex align-items-center">
                                                     <img src="https://cdn.worldvectorlogo.com/logos/bayern-munich.svg"
-                                                        alt="Stuttgart" class="me-2"
-                                                        style="width:24px; height:24px;">
+                                                        alt="Stuttgart" class="me-2" style="width:24px; height:24px;">
                                                     <span class="fw-bold">Bayer Munich</span>
                                                 </div>
                                                 <div class="text-center">
@@ -348,8 +1144,7 @@
                                                 <div class="d-flex align-items-center">
                                                     <span class="fw-bold">B. Dortmund</span>
                                                     <img src="https://cdn.worldvectorlogo.com/logos/borussia-dortmund.svg"
-                                                        alt="St. Pauli" class="ms-2"
-                                                        style="width:24px; height:24px;">
+                                                        alt="St. Pauli" class="ms-2" style="width:24px; height:24px;">
                                                 </div>
                                             </div>
                                         </div>
@@ -359,107 +1154,115 @@
                         </div>
                     </section>
 
-                    <!-- Noticia Hero Principal -->
+                    <!-- Sección MARCA TV -->
                     <section class="mb-4">
-                        <article class="card border-0 shadow-sm">
-                            <div class="row g-0">
-                                <div class="col-md-6">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h2 class="h4 fw-bold text-danger">📺 MARCA TV</h2>
+                            <a href="#" class="text-danger text-decoration-none">Ir a MARCA TV →</a>
+                        </div>
+
+                        <div class="row">
+                            <!-- Video Principal -->
+                            <div class="col-lg-8 mb-3">
+                                <article class="card border-0 shadow-sm position-relative">
                                     <div class="position-relative">
-                                        <img src="/assets/barca.jpg"
-                                            class="img-fluid rounded-start" alt="Noticia principal"
-                                            style="height: 300px; object-fit: cover; width: 100%;">
-                                        <div class="position-absolute top-0 start-0 m-3">
-                                            <span class="badge bg-danger fs-6">LA LIGA EA SPORTS</span>
+                                        <img src="/assets/golazo.jpg" class="card-img-top" alt="Video principal"
+                                            style="height: 300px; object-fit: cover;" loading="lazy">
+                                        <div class="position-absolute top-50 start-50 translate-middle">
+                                            <div class="bg-danger rounded-circle p-3 shadow-lg">
+                                                <i class="bi bi-play-fill text-white" style="font-size: 2rem;"></i>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="position-absolute bottom-0 start-0 w-100 p-3 bg-gradient text-white">
+                                            <span class="badge bg-danger mb-2">LALIGA EA SPORTS</span>
+                                            <h3 class="h5 fw-bold mb-1">El VAR corrigió al árbitro: roja directa a
+                                                Sorloth por un plantillazo a Raíllo</h3>
+                                            <small>Duración: 1:20 min.</small>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="card-body p-4">
-                                        <h1 class="card-title h3 fw-bold mb-3">
-                                            Desvelados los límites salariales: nuevo bajón del Barça
-                                        </h1>
-                                        <p class="card-text text-muted mb-3">
-                                            Los culés han visto reducido su tope salarial para esta temporada,
-                                            lo que complica aún más sus fichajes y renovaciones.
-                                        </p>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <small class="text-muted fw-bold">MANUEL MALAGÓN</small>
-                                            <small class="text-muted">391 comentarios</small>
-                                        </div>
+                                </article>
+                            </div>
+
+                            <!-- Videos Relacionados -->
+                            <div class="col-lg-4">
+                                <div class="row">
+                                    <div class="col-12 mb-3">
+                                        <article class="card border-0 shadow-sm">
+                                            <div class="row g-0">
+                                                <div class="col-4">
+                                                    <div class="position-relative">
+                                                        <img src="/assets/golvini.jpg" class="img-fluid h-100"
+                                                            alt="Video" style="object-fit: cover;">
+                                                        <div class="position-absolute top-50 start-50 translate-middle">
+                                                            <i class="bi bi-play-circle-fill text-white fs-3"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8">
+                                                    <div class="card-body p-3">
+                                                        <h4 class="card-title h6 fw-bold mb-1">Simeone explica el cambio
+                                                            de Julián</h4>
+                                                        <p class="card-text small text-muted mb-1">"Todos se enojan
+                                                            cuando les sacan"</p>
+                                                        <small class="text-muted">1:20 min.</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+
+                                    <div class="col-12 mb-3">
+                                        <article class="card border-0 shadow-sm">
+                                            <div class="row g-0">
+                                                <div class="col-4">
+                                                    <div class="position-relative">
+                                                        <img src="/assets/hamilton.jpg" class="img-fluid h-100"
+                                                            alt="Video" style="object-fit: cover;">
+                                                        <div class="position-absolute top-50 start-50 translate-middle">
+                                                            <i class="bi bi-play-circle-fill text-white fs-3"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8">
+                                                    <div class="card-body p-3">
+                                                        <h4 class="card-title h6 fw-bold mb-1">Messi guía la victoria de
+                                                            Inter Miami</h4>
+                                                        <p class="card-text small text-muted mb-1">Doblete y ya es el
+                                                            'Pichichi de la MLS</p>
+                                                        <small class="text-muted">2:58 min.</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+
+                                    <div class="col-12 mb-3">
+                                        <article class="card border-0 shadow-sm">
+                                            <div class="row g-0">
+                                                <div class="col-4">
+                                                    <div class="position-relative">
+                                                        <img src="/assets/max.jpg" class="img-fluid h-100" alt="Video"
+                                                            style="object-fit: cover;">
+                                                        <div class="position-absolute top-50 start-50 translate-middle">
+                                                            <i class="bi bi-play-circle-fill text-white fs-3"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8">
+                                                    <div class="card-body p-3">
+                                                        <h4 class="card-title h6 fw-bold mb-1">Testigo MARCA: fiesta
+                                                            goleadora del Ronin</h4>
+                                                        <p class="card-text small text-muted mb-1">Así fue la fiesta
+                                                            goleadora del Ronin de Ibai en su debut</p>
+                                                        <small class="text-muted">1:43 min.</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
                                     </div>
                                 </div>
                             </div>
-                        </article>
-                    </section>
-
-                    <!-- Noticias Secundarias -->
-                    <section class="row mb-4">
-                        <div class="col-md-6 mb-3">
-                            <article class="card border-0 shadow-sm h-100">
-                                <div class="row g-0 h-100">
-                                    <div class="col-4">
-                                        <img src="/assets/formula1.jpg"
-                                            class="img-fluid rounded-start h-100" alt="GP Azerbaiyán F1"
-                                            style="object-fit: cover;">
-                                    </div>
-                                    <div class="col-8">
-                                        <div class="card-body p-3">
-                                            <span class="badge bg-secondary mb-2 small">GP AZERBAIYÁN F1</span>
-                                            <h3 class="card-title h6 fw-bold mb-2">Ahogado por Aston Martin</h3>
-                                            <p class="card-text text-muted small mb-0">El equipo británico domina en
-                                                Bakú.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <article class="card border-0 shadow-sm h-100">
-                                <div class="row g-0 h-100">
-                                    <div class="col-4">
-                                        <img src="/assets/haaland.jpg"
-                                            class="img-fluid rounded-start h-100" alt="Champions League"
-                                            style="object-fit: cover;">
-                                    </div>
-                                    <div class="col-8">
-                                        <div class="card-body p-3">
-                                            <span class="badge bg-secondary mb-2 small">CHAMPIONS LEAGUE</span>
-                                            <h3 class="card-title h6 fw-bold mb-2">Haaland marca su gol 50</h3>
-                                            <p class="card-text text-muted small mb-0">El noruego alcanza un hito
-                                                histórico.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </section>
-
-                    <!-- Grid de Noticias Secundarias -->
-                    <section class="row mb-4">
-                        <div class="col-md-6 mb-3">
-                            <article class="card h-100 border-0 shadow-sm">
-                                <img src="/assets/madrid.jpg"
-                                    class="card-img-top" alt="Champions League"
-                                    style="height: 200px; object-fit: cover;">
-                                <div class="card-body">
-                                    <span class="badge bg-secondary mb-2">Champions League</span>
-                                    <h3 class="card-title h5 fw-bold">Real madrid con paso firme</h3>
-                                    <p class="card-text text-muted small">Lluvia de goles en un partido contundente por
-                                        parte del madrid.</p>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <article class="card h-100 border-0 shadow-sm">
-                                <img src="/assets/max.jpg"
-                                    class="card-img-top" alt="Fórmula 1" style="height: 200px; object-fit: cover;">
-                                <div class="card-body">
-                                    <span class="badge bg-secondary mb-2">Fórmula 1</span>
-                                    <h3 class="card-title h5 fw-bold">Verstappen domina los libres en Singapur</h3>
-                                    <p class="card-text text-muted small">El piloto holandés se muestra intratable en el
-                                        circuito urbano.</p>
-                                </div>
-                            </article>
                         </div>
                     </section>
 
@@ -473,8 +1276,8 @@
                             <div class="col-md-4 mb-3">
                                 <article class="card h-100 border-0 shadow-sm">
                                     <div class="position-relative">
-                                        <img src="/assets/barcelona.jpg"
-                                            class="card-img-top" alt="LALIGA" style="height: 150px; object-fit: cover;">
+                                        <img src="/assets/barcelona.jpg" class="card-img-top" alt="LALIGA"
+                                            style="height: 150px; object-fit: cover;">
                                         <div class="position-absolute top-0 start-0 m-2">
                                             <span class="badge bg-danger">LALIGA</span>
                                         </div>
@@ -490,8 +1293,7 @@
                             <div class="col-md-4 mb-3">
                                 <article class="card h-100 border-0 shadow-sm">
                                     <div class="position-relative">
-                                        <img src="/assets/atletico.jpg"
-                                            class="card-img-top" alt="Champions"
+                                        <img src="/assets/atletico.jpg" class="card-img-top" alt="Champions"
                                             style="height: 150px; object-fit: cover;">
                                         <div class="position-absolute top-0 start-0 m-2">
                                             <span class="badge bg-danger">Champions</span>
@@ -508,8 +1310,7 @@
                             <div class="col-md-4 mb-3">
                                 <article class="card h-100 border-0 shadow-sm">
                                     <div class="position-relative">
-                                        <img src="/assets/españa.jpg"
-                                            class="card-img-top" alt="Selección"
+                                        <img src="/assets/españa.jpg" class="card-img-top" alt="Selección"
                                             style="height: 150px; object-fit: cover;">
                                         <div class="position-absolute top-0 start-0 m-2">
                                             <span class="badge bg-danger">Selección</span>
@@ -534,8 +1335,8 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <article class="card h-100 border-0 shadow-sm">
-                                    <img src="/assets/hamilton.jpg"
-                                        class="card-img-top" alt="F1" style="height: 200px; object-fit: cover;">
+                                    <img src="/assets/hamilton.jpg" class="card-img-top" alt="F1"
+                                        style="height: 200px; object-fit: cover;">
                                     <div class="card-body">
                                         <span class="badge bg-secondary mb-2">Fórmula 1</span>
                                         <h4 class="card-title h5 fw-bold">Hamilton anuncia su salida de Mercedes</h4>
@@ -546,8 +1347,8 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <article class="card h-100 border-0 shadow-sm">
-                                    <img src="/assets/motor.jpg"
-                                        class="card-img-top" alt="MotoGP" style="height: 200px; object-fit: cover;">
+                                    <img src="/assets/motor.jpg" class="card-img-top" alt="MotoGP"
+                                        style="height: 200px; object-fit: cover;">
                                     <div class="card-body">
                                         <span class="badge bg-secondary mb-2">MotoGP</span>
                                         <h4 class="card-title h5 fw-bold">Bagnaia gana en Aragón</h4>
@@ -568,8 +1369,8 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <article class="card h-100 border-0 shadow-sm">
-                                    <img src="/assets/lakers.jpg"
-                                        class="card-img-top" alt="NBA" style="height: 200px; object-fit: cover;">
+                                    <img src="/assets/lakers.jpg" class="card-img-top" alt="NBA"
+                                        style="height: 200px; object-fit: cover;">
                                     <div class="card-body">
                                         <span class="badge bg-secondary mb-2">NBA</span>
                                         <h4 class="card-title h5 fw-bold">Lakers fichan a Doncic por 200 millones</h4>
@@ -581,8 +1382,8 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <article class="card h-100 border-0 shadow-sm">
-                                    <img src="/assets/basmadrid.jpg"
-                                        class="card-img-top" alt="ACB" style="height: 200px; object-fit: cover;">
+                                    <img src="/assets/basmadrid.jpg" class="card-img-top" alt="ACB"
+                                        style="height: 200px; object-fit: cover;">
                                     <div class="card-body">
                                         <span class="badge bg-secondary mb-2">Liga Endesa</span>
                                         <h4 class="card-title h5 fw-bold">Real Madrid gana la Supercopa</h4>
@@ -594,198 +1395,242 @@
                             </div>
                         </div>
                     </section>
+
+                    <!-- Sección Polideportivo -->
+                    <section class="mb-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h2 class="h4 fw-bold text-danger">Polideportivo</h2>
+                            <a href="#" class="text-danger text-decoration-none">Más polideportivo →</a>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <article class="card h-100 border-0 shadow-sm">
+                                    <div class="position-relative">
+                                        <img src="/assets/españa.jpg" class="card-img-top" alt="Mundial Atletismo"
+                                            style="height: 150px; object-fit: cover;">
+                                        <div class="position-absolute top-0 start-0 m-2">
+                                            <span class="badge bg-warning text-dark">MUNDIAL ATLETISMO</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-body p-3">
+                                        <h4 class="card-title h6 fw-bold">El renacer de Adiaratou Iglesias</h4>
+                                        <p class="card-text text-muted small mb-0">La atleta española busca brillar en
+                                            los Paralímpicos tras superar las adversidades.</p>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <article class="card h-100 border-0 shadow-sm">
+                                    <div class="position-relative">
+                                        <img src="/assets/motor.jpg" class="card-img-top" alt="Ciclismo"
+                                            style="height: 150px; object-fit: cover;">
+                                        <div class="position-absolute top-0 start-0 m-2">
+                                            <span class="badge bg-success">CICLISMO</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-body p-3">
+                                        <h4 class="card-title h6 fw-bold">Ocho nombres a seguir en Ruanda</h4>
+                                        <p class="card-text text-muted small mb-0">España 2025 presenta sus mejores
+                                            cartas para el Mundial de Ciclismo.</p>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <article class="card h-100 border-0 shadow-sm">
+                                    <div class="position-relative">
+                                        <img src="/assets/lakers.jpg" class="card-img-top" alt="Tenis"
+                                            style="height: 150px; object-fit: cover;">
+                                        <div class="position-absolute top-0 start-0 m-2">
+                                            <span class="badge bg-info">TENIS</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-body p-3">
+                                        <h4 class="card-title h6 fw-bold">España gana el Mundial sub'23 de trinquete
+                                        </h4>
+                                        <p class="card-text text-muted small mb-0">Primera vez que España consigue este
+                                            título en su historia.</p>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Sección Gaming/Streamers -->
+                    <section class="mb-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h2 class="h4 fw-bold text-danger">Gaming & Streamers</h2>
+                            <a href="#" class="text-danger text-decoration-none">Más gaming →</a>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <article class="card h-100 border-0 shadow-sm">
+                                    <div class="position-relative">
+                                        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3p3Mmd5cTBqeGNyc2hxbGRwdHdwdWt2M2h1OXh6ZnUwbXE3cTJqZSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/26tn33aiTi1jkl6H6/giphy.gif"
+                                            class="card-img-top" alt="El Ronin"
+                                            style="height: 200px; object-fit: cover;">
+                                        <div class="position-absolute top-0 start-0 m-2">
+                                            <span class="badge bg-primary">FÚTBOL</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title h5 fw-bold">El Ronin de Ibai debuta con goleada: ¡9-0!
+                                        </h4>
+                                        <p class="card-text text-muted">El equipo del streamer venció 9-0 ante el
+                                            Villarana en un partido muy sencillo para Ronin.</p>
+                                        <small class="text-muted">Duración del vídeo: 4:49 min.</small>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <article class="card h-100 border-0 shadow-sm">
+                                    <div class="position-relative">
+                                        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeXJsbGcwb2M3cjJ6ZXJ6OXRhNGZrZWVhcnN4ZWdwd2JnOTNtdDRrdyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3oKIPnAiaMCws8nOsE/giphy.gif"
+                                            class="card-img-top" alt="Streamers"
+                                            style="height: 200px; object-fit: cover;">
+                                        <div class="position-absolute top-0 start-0 m-2">
+                                            <span class="badge bg-warning text-dark">STREAMERS</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title h5 fw-bold">Tensión entre Jordi Wild y Cristóbal Soria
+                                        </h4>
+                                        <p class="card-text text-muted">Tras una broma en The Wild Project: "A mí eso no
+                                            me gusta"</p>
+                                        <small class="text-muted">15 comentarios</small>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </section>
                 </div> <!-- Cierre del contenedor delimitado -->
             </div>
 
-            <!-- Sidebar Derecho - Publicidad -->
+            <!-- Sidebar Derecho - Contenido Útil -->
             <aside class="col-12 col-lg-2 d-none d-lg-block">
                 <div class="sticky-top" style="top: 20px;">
-                    <!-- Banner Publicitario Vertical -->
+
+                    <!-- Tendencias -->
                     <div class="card border-0 shadow-sm mb-4">
-                        <div class="card-body p-3 text-center bg-danger text-white">
-                            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjJoYng4NTV4cXlzdTVjOHk3YzdoaGdmM3V1eWhxZXFyZWpvYmg3byZlcD12MV9naWZzX3NlYXJjaCZjdD1n/yKssuaWXjMaq43sEOH/giphy.gif"
-                                class="img-fluid rounded mb-3" alt="Publicidad"
-                                style="height: 200px; object-fit: cover;">
-                            <h4 class="h6 fw-bold mb-2">¡Gana $1,000!</h4>
-                            <p class="small mb-3">Sin depósito inicial</p>
-                            <button class="btn btn-success btn-sm w-100">APUESTA YA</button>
+                        <div class="card-header bg-danger text-white">
+                            <h3 class="h6 mb-0 fw-bold">🔥 Tendencias</h3>
+                        </div>
+                        <div class="card-body p-3">
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2 pb-2 border-bottom">
+                                    <a href="#"
+                                        class="text-dark text-decoration-none fw-medium small">#ChampionsLeague</a>
+                                    <br><small class="text-muted">12.5K tweets</small>
+                                </li>
+                                <li class="mb-2 pb-2 border-bottom">
+                                    <a href="#" class="text-dark text-decoration-none fw-medium small">#RealMadrid</a>
+                                    <br><small class="text-muted">8.9K tweets</small>
+                                </li>
+                                <li class="mb-2 pb-2 border-bottom">
+                                    <a href="#" class="text-dark text-decoration-none fw-medium small">#F1Singapore</a>
+                                    <br><small class="text-muted">6.2K tweets</small>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#" class="text-dark text-decoration-none fw-medium small">#Barcelona</a>
+                                    <br><small class="text-muted">5.8K tweets</small>
+                                </li>
+                            </ul>
                         </div>
                     </div>
 
-                    <!-- GIF Publicitario -->
+                    <!-- Clasificación LALIGA -->
                     <div class="card border-0 shadow-sm mb-4">
-                        <div class="card-body p-0">
-                            <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif"
-                                class="img-fluid rounded" alt="Publicidad animada"
-                                style="width: 100%; height: 150px; object-fit: cover;">
+                        <div class="card-header bg-danger text-white">
+                            <h3 class="h6 mb-0 fw-bold">🏆 Clasificación LALIGA</h3>
+                        </div>
+                        <div class="card-body p-3">
+                            <div class="table-responsive">
+                                <table class="table table-sm mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th class="border-0 small">Pos</th>
+                                            <th class="border-0 small">Equipo</th>
+                                            <th class="border-0 small">Pts</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="table-warning">
+                                            <td class="fw-bold small">1</td>
+                                            <td class="fw-bold small">Real Madrid</td>
+                                            <td class="fw-bold small">18</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="small">2</td>
+                                            <td class="small">Barcelona</td>
+                                            <td class="small">16</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="small">3</td>
+                                            <td class="small">Atlético</td>
+                                            <td class="small">15</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="small">4</td>
+                                            <td class="small">Real Sociedad</td>
+                                            <td class="small">12</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="small">5</td>
+                                            <td class="small">Athletic</td>
+                                            <td class="small">11</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="text-center mt-3">
+                                <a href="#" class="btn btn-outline-danger btn-sm small">Ver clasificación completa</a>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Banner Más Pequeño -->
-                    <div class="card border-0 shadow-sm">
+                    <!-- Más Noticias -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-secondary text-white">
+                            <h3 class="h6 mb-0 fw-bold">📰 Más Noticias</h3>
+                        </div>
+                        <div class="card-body p-3">
+                            <div class="mb-3">
+                                <a href="#" class="text-dark text-decoration-none">
+                                    <h4 class="h6 fw-bold mb-1 small">Koke analiza el mal inicio liguero del Atlético
+                                    </h4>
+                                    <p class="text-muted small mb-1">"Nos están pasando cosas raras"</p>
+                                </a>
+                                <small class="text-muted">4:06 min.</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <a href="#" class="text-dark text-decoration-none">
+                                    <h4 class="h6 fw-bold mb-1 small">Harry Styles brilla en el maratón de Berlín</h4>
+                                    <p class="text-muted small mb-1">Con un crono de 2:59:13</p>
+                                </a>
+                                <small class="text-muted">1 comentarios</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <a href="#" class="text-dark text-decoration-none">
+                                    <h4 class="h6 fw-bold mb-1 small">Charles Oliveira se queda sin rival</h4>
+                                    <p class="text-muted small mb-1">Y ataca a todo el peso ligero</p>
+                                </a>
+                                <small class="text-muted">0 comentarios</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Banner Publicitario Pequeño -->
+                    <div class="card border-0 shadow-sm mb-4">
                         <div class="card-body p-2 text-center bg-warning">
                             <img src="https://media.giphy.com/media/Z3aI8kFZYbfCwqNDny/giphy.gif" alt="Oferta"
-                                class="img-fluid"
-                                 style="width: 100%; height: 120px; object-fit: cover;">
+                                class="img-fluid" style="width: 100%; height: 120px; object-fit: cover;">
                             <p class="small mb-0 mt-2 fw-bold">¡Aprovecha!</p>
                         </div>
                     </div>
                 </div>
             </aside>
 
-            <!-- Sidebar Original -->
-            <aside class="col-12 col-lg-8 mx-auto">
-
-                <!-- Tendencias -->
-                 <div class="bg-white shadow-sm rounded p-4" style="min-height: 100vh;">
-                <div class="card border-0 shadow-sm mb-4">
-                    <div class="card-header bg-danger text-white">
-                        <h3 class="h6 mb-0 fw-bold">🔥 Tendencias</h3>
-                    </div>
-                    <div class="card-body p-3">
-                        <ul class="list-unstyled mb-0">
-                            <li class="mb-2 pb-2 border-bottom">
-                                <a href="#" class="text-dark text-decoration-none fw-medium">#ChampionsLeague</a>
-                                <br><small class="text-muted">12.5K tweets</small>
-                            </li>
-                            <li class="mb-2 pb-2 border-bottom">
-                                <a href="#" class="text-dark text-decoration-none fw-medium">#RealMadrid</a>
-                                <br><small class="text-muted">8.9K tweets</small>
-                            </li>
-                            <li class="mb-2 pb-2 border-bottom">
-                                <a href="#" class="text-dark text-decoration-none fw-medium">#F1Singapore</a>
-                                <br><small class="text-muted">6.2K tweets</small>
-                            </li>
-                            <li class="mb-2 pb-2 border-bottom">
-                                <a href="#" class="text-dark text-decoration-none fw-medium">#Barcelona</a>
-                                <br><small class="text-muted">5.8K tweets</small>
-                            </li>
-                            <li class="mb-2">
-                                <a href="#" class="text-dark text-decoration-none fw-medium">#MotoGP</a>
-                                <br><small class="text-muted">4.1K tweets</small>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Videos Destacados -->
-                <div class="card border-0 shadow-sm mb-4">
-                    <div class="card-header bg-danger text-white">
-                        <h3 class="h6 mb-0 fw-bold">📺 Videos Destacados</h3>
-                    </div>
-                    <div class="card-body p-3">
-                        <div class="d-flex mb-3">
-                            <div class="position-relative me-3">
-                                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWhtODBtc3g2dXo0eHJpaXR0eTJiM21qaXpweHp2MWhrdXg2ajlqeCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/5F7D857WQjFIpalsHq/giphy.gif"
-                                    alt="Video 1" class="rounded" style="width: 80px; height: 60px; object-fit: cover;">
-                                <div class="position-absolute top-50 start-50 translate-middle">
-                                    <i class="bi bi-play-circle-fill text-white fs-4"></i>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1">
-                                <a href="#" class="text-dark text-decoration-none fw-medium small d-block">
-                                    Gol de Vinícius en el minuto 92
-                                </a>
-                                <small class="text-muted">0:15 min.</small>
-                            </div>
-                        </div>
-
-                        <div class="d-flex mb-3">
-                            <div class="position-relative me-3">
-                                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWs5dzF0Y281NnAxeW40OTdlZTIxenQ4aGw3MnNqcDJ5cGVocDl5aCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/UygWiWMQZE6WifSQWE/giphy.gif"
-                                    alt="Video 2" class="rounded" style="width: 80px; height: 60px; object-fit: cover;">
-                                <div class="position-absolute top-50 start-50 translate-middle">
-                                    <i class="bi bi-play-circle-fill text-white fs-4"></i>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1">
-                                <a href="#" class="text-dark text-decoration-none fw-medium small d-block">
-                                    Haaland marca su gol 50 en Champions
-                                </a>
-                                <small class="text-muted">0:28 min.</small>
-                            </div>
-                        </div>
-
-                        <div class="d-flex">
-                            <div class="position-relative me-3">
-                                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjNvYzcyNGNyZTRmMXFkZjJ4NjI0bDNuNzVqZmVsMXd1OTY5bzB4eCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/hwlXDVC7Q4KNXQzqJH/giphy.gif"
-                                    alt="Video 3" class="rounded" style="width: 80px; height: 60px; object-fit: cover;">
-                                <div class="position-absolute top-50 start-50 translate-middle">
-                                    <i class="bi bi-play-circle-fill text-white fs-4"></i>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1">
-                                <a href="#" class="text-dark text-decoration-none fw-medium small d-block">
-                                    Verstappen domina en Singapur
-                                </a>
-                                <small class="text-muted">1:12 min.</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Clasificación LALIGA -->
-                <div class="card border-0 shadow-sm mb-4">
-                    <div class="card-header bg-danger text-white">
-                        <h3 class="h6 mb-0 fw-bold">🏆 Clasificación LALIGA</h3>
-                    </div>
-                    <div class="card-body p-3">
-                        <div class="table-responsive">
-                            <table class="table table-sm mb-0">
-                                <thead>
-                                    <tr>
-                                        <th class="border-0">Pos</th>
-                                        <th class="border-0">Equipo</th>
-                                        <th class="border-0">Pts</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="table-warning">
-                                        <td class="fw-bold">1</td>
-                                        <td class="fw-bold">Real Madrid</td>
-                                        <td class="fw-bold">18</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Barcelona</td>
-                                        <td>16</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Atlético</td>
-                                        <td>15</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Real Sociedad</td>
-                                        <td>12</td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Athletic</td>
-                                        <td>11</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="text-center mt-3">
-                            <a href="#" class="btn btn-outline-danger btn-sm">Ver clasificación completa</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- GIF Animado -->
-                <div class="card border-0 shadow-sm mb-4">
-                    <div class="card-body p-0">
-                        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOW1qbDF5YXhuZzFnbjQ5d202eTNlZnE0Mnc4YWdnbHJxaTExdXY2aSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/h8rlhOTBjAIfrkWjA0/giphy.gif" class="img-fluid rounded"
-                            alt="GIF deportivo animado" style="width: 100%; height: 450px; object-fit: cover;">
-                        <div class="p-3">
-                            <h4 class="h6 fw-bold mb-2">⚽ Golazo de la jornada</h4>
-                            <p class="text-muted small mb-0">El mejor gol de la última jornada de LALIGA</p>
-                        </div>
-                    </div>
-                </div>
-            </aside>
         </div>
     </main>
 
@@ -868,10 +1713,34 @@
 
     <!-- JavaScript personalizado para funcionalidades adicionales -->
     <script type="module">
+        // Funcionalidad para actualizar el reloj
+        const updateClock = () => {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('es-ES', {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
+            });
+            const clockElement = document.getElementById('current-time');
+            if (clockElement) {
+                clockElement.textContent = `${timeString} h.`;
+            }
+        };
+
         // Funcionalidad para el selector de edición
         const handleEditionChange = (selectedEdition) => {
             console.log(`Edición seleccionada: ${selectedEdition}`);
             // Aquí se podría implementar la lógica para cambiar la edición
+
+            // Mostrar feedback visual
+            const button = document.querySelector('.dropdown-toggle');
+            if (button) {
+                button.textContent = selectedEdition;
+                button.classList.add('btn-success');
+                setTimeout(() => {
+                    button.classList.remove('btn-success');
+                }, 1000);
+            }
         };
 
         // Funcionalidad para búsqueda
@@ -879,11 +1748,262 @@
             if (searchTerm.trim()) {
                 console.log(`Buscando: ${searchTerm}`);
                 // Aquí se implementaría la lógica de búsqueda
+
+                // Mostrar feedback visual
+                const searchInput = document.querySelector('input[type="search"]');
+                if (searchInput) {
+                    searchInput.style.borderColor = '#28a745';
+                    setTimeout(() => {
+                        searchInput.style.borderColor = '';
+                    }, 1000);
+                }
             }
+        };
+
+        // Funcionalidad para scroll suave en enlaces internos
+        const handleSmoothScroll = (e) => {
+            const href = e.target.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const targetElement = document.querySelector(href);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        };
+
+        // ========================================
+        // GESTOS MÓVILES AVANZADOS
+        // ========================================
+
+        // Variables para gestos
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+        let isScrolling = false;
+
+        // Detectar si es dispositivo móvil
+        const isMobile = () => {
+            return window.innerWidth <= 768 || 'ontouchstart' in window;
+        };
+
+        // Funcionalidad de swipe para navegación
+        const handleSwipeGesture = () => {
+            const deltaX = touchEndX - touchStartX;
+            const deltaY = touchEndY - touchStartY;
+            const minSwipeDistance = 50;
+
+            // Detectar dirección predominante
+            if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
+                if (deltaX > 0) {
+                    // Swipe derecha - abrir menú
+                    handleSwipeRight();
+                } else {
+                    // Swipe izquierda - cerrar menú
+                    handleSwipeLeft();
+                }
+            } else if (Math.abs(deltaY) > minSwipeDistance && !isScrolling) {
+                if (deltaY > 0 && window.scrollY < 50) {
+                    // Swipe hacia abajo desde arriba - refresh
+                    handlePullToRefresh();
+                }
+            }
+        };
+
+        // Swipe derecha - abrir menú
+        const handleSwipeRight = () => {
+            if (!isMobile()) return;
+
+            const offcanvas = document.getElementById('offcanvasNavbar');
+            if (offcanvas && !offcanvas.classList.contains('show')) {
+                const bsOffcanvas = new bootstrap.Offcanvas(offcanvas);
+                bsOffcanvas.show();
+
+                // Vibración si está disponible
+                if ('vibrate' in navigator) {
+                    navigator.vibrate(50);
+                }
+            }
+        };
+
+        // Swipe izquierda - cerrar menú
+        const handleSwipeLeft = () => {
+            if (!isMobile()) return;
+
+            const offcanvas = document.getElementById('offcanvasNavbar');
+            if (offcanvas && offcanvas.classList.contains('show')) {
+                const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvas);
+                if (bsOffcanvas) {
+                    bsOffcanvas.hide();
+                }
+            }
+        };
+
+        // Pull to refresh
+        const handlePullToRefresh = () => {
+            if (!isMobile()) return;
+
+            const refreshIndicator = createRefreshIndicator();
+            document.body.appendChild(refreshIndicator);
+
+            // Simular refresh
+            setTimeout(() => {
+                // Actualizar contenido (aquí podrías hacer una llamada real a la API)
+                updateClock();
+
+                // Mostrar feedback
+                showToast('Contenido actualizado', 'success');
+
+                // Remover indicador
+                refreshIndicator.remove();
+
+                // Vibración de confirmación
+                if ('vibrate' in navigator) {
+                    navigator.vibrate([100, 50, 100]);
+                }
+            }, 1500);
+        };
+
+        // Crear indicador de refresh
+        const createRefreshIndicator = () => {
+            const indicator = document.createElement('div');
+            indicator.className = 'refresh-indicator';
+            indicator.innerHTML = `
+                <div class="d-flex justify-content-center align-items-center">
+                    <div class="spinner-border spinner-border-sm text-danger me-2" role="status">
+                        <span class="visually-hidden">Cargando...</span>
+                    </div>
+                    <small class="text-muted">Actualizando contenido...</small>
+                </div>
+            `;
+            indicator.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 9999;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                padding: 15px;
+                border-bottom: 1px solid #dee2e6;
+                animation: slideDown 0.3s ease-out;
+            `;
+
+            // Agregar animación CSS si no existe
+            if (!document.querySelector('#refresh-animation-styles')) {
+                const style = document.createElement('style');
+                style.id = 'refresh-animation-styles';
+                style.textContent = `
+                    @keyframes slideDown {
+                        from { transform: translateY(-100%); opacity: 0; }
+                        to { transform: translateY(0); opacity: 1; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+
+            return indicator;
+        };
+
+        // Mostrar toast notifications
+        const showToast = (message, type = 'info') => {
+            const toastContainer = getOrCreateToastContainer();
+            const toastId = 'toast-' + Date.now();
+
+            const toast = document.createElement('div');
+            toast.id = toastId;
+            toast.className = `toast align-items-center text-white bg-${type === 'success' ? 'success' : 'primary'} border-0`;
+            toast.setAttribute('role', 'alert');
+            toast.innerHTML = `
+                <div class="d-flex">
+                    <div class="toast-body fw-medium">
+                        ${message}
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                </div>
+            `;
+
+            toastContainer.appendChild(toast);
+
+            const bsToast = new bootstrap.Toast(toast, {
+                autohide: true,
+                delay: 3000
+            });
+            bsToast.show();
+
+            // Remover después de que se oculte
+            toast.addEventListener('hidden.bs.toast', () => {
+                toast.remove();
+            });
+        };
+
+        // Obtener o crear contenedor de toasts
+        const getOrCreateToastContainer = () => {
+            let container = document.getElementById('toast-container');
+            if (!container) {
+                container = document.createElement('div');
+                container.id = 'toast-container';
+                container.className = 'toast-container position-fixed top-0 end-0 p-3';
+                container.style.zIndex = '9999';
+                document.body.appendChild(container);
+            }
+            return container;
+        };
+
+        // Funcionalidad de haptic feedback
+        const hapticFeedback = (type = 'light') => {
+            if (!isMobile() || !('vibrate' in navigator)) return;
+
+            const patterns = {
+                light: 10,
+                medium: 50,
+                heavy: 100,
+                success: [100, 50, 100],
+                error: [200, 100, 200, 100, 200]
+            };
+
+            navigator.vibrate(patterns[type] || patterns.light);
+        };
+
+        // Optimización de scroll para móvil
+        let scrollTimeout;
+        const optimizeScrolling = () => {
+            if (!isMobile()) return;
+
+            const navbar = document.querySelector('.navbar');
+            let lastScrollTop = 0;
+
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                // Auto-hide navbar al hacer scroll hacia abajo
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    // Scroll hacia abajo
+                    navbar.style.transform = 'translateY(-100%)';
+                } else {
+                    // Scroll hacia arriba
+                    navbar.style.transform = 'translateY(0)';
+                }
+
+                lastScrollTop = scrollTop;
+
+                // Agregar clase cuando se hace scroll
+                clearTimeout(scrollTimeout);
+                document.body.classList.add('scrolling');
+
+                scrollTimeout = setTimeout(() => {
+                    document.body.classList.remove('scrolling');
+                }, 150);
+            }, { passive: true });
         };
 
         // Inicialización cuando el DOM esté listo
         document.addEventListener('DOMContentLoaded', () => {
+            // Funcionalidades existentes
+            updateClock();
+            setInterval(updateClock, 60000);
+
             // Configurar eventos de búsqueda
             const searchForm = document.querySelector('form.d-flex');
             if (searchForm) {
@@ -891,6 +2011,7 @@
                     e.preventDefault();
                     const searchInput = searchForm.querySelector('input[type="search"]');
                     handleSearch(searchInput.value);
+                    hapticFeedback('light');
                 });
             }
 
@@ -899,9 +2020,268 @@
             if (editionDropdown) {
                 editionDropdown.addEventListener('click', (e) => {
                     if (e.target.classList.contains('dropdown-item')) {
+                        e.preventDefault();
                         handleEditionChange(e.target.textContent.trim());
+                        hapticFeedback('medium');
                     }
                 });
+            }
+
+            // Configurar scroll suave para enlaces internos
+            document.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    handleSmoothScroll(e);
+                    hapticFeedback('light');
+                }
+            });
+
+            // Lazy loading para imágenes
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.src || img.src;
+                            img.classList.remove('lazy');
+                            imageObserver.unobserve(img);
+                        }
+                    });
+                }, {
+                    rootMargin: '50px'
+                });
+
+                images.forEach(img => imageObserver.observe(img));
+            }
+
+            // ========================================
+            // INICIALIZACIÓN DE FUNCIONALIDADES MÓVILES
+            // ========================================
+
+            if (isMobile()) {
+                // Configurar gestos táctiles
+                document.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                    touchStartY = e.changedTouches[0].screenY;
+                    isScrolling = false;
+                }, { passive: true });
+
+                document.addEventListener('touchmove', (e) => {
+                    isScrolling = true;
+                }, { passive: true });
+
+                document.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    touchEndY = e.changedTouches[0].screenY;
+                    handleSwipeGesture();
+                }, { passive: true });
+
+                // Optimizar scrolling
+                optimizeScrolling();
+
+                // Agregar estilos específicos para móvil
+                document.body.classList.add('mobile-optimized');
+
+                // Prevenir zoom accidental en inputs
+                const inputs = document.querySelectorAll('input, textarea, select');
+                inputs.forEach(input => {
+                    input.addEventListener('focus', () => {
+                        input.style.fontSize = '16px';
+                    });
+                });
+
+                // Configurar orientación
+                window.addEventListener('orientationchange', () => {
+                    setTimeout(() => {
+                        // Recalcular dimensiones después del cambio de orientación
+                        window.dispatchEvent(new Event('resize'));
+                    }, 100);
+                });
+
+                // ========================================
+                // FUNCIONALIDADES PWA AVANZADAS
+                // ========================================
+
+                // Detectar conexión offline/online
+                const handleConnectionChange = () => {
+                    const offlineIndicator = getOrCreateOfflineIndicator();
+
+                    if (!navigator.onLine) {
+                        offlineIndicator.classList.add('show');
+                        showToast('Sin conexión a internet', 'error');
+                        hapticFeedback('error');
+                    } else {
+                        offlineIndicator.classList.remove('show');
+                        showToast('Conexión restaurada', 'success');
+                        hapticFeedback('success');
+                    }
+                };
+
+                // Crear indicador offline
+                const getOrCreateOfflineIndicator = () => {
+                    let indicator = document.getElementById('offline-indicator');
+                    if (!indicator) {
+                        indicator = document.createElement('div');
+                        indicator.id = 'offline-indicator';
+                        indicator.className = 'offline-indicator';
+                        indicator.innerHTML = '📡 Sin conexión a internet';
+                        document.body.appendChild(indicator);
+                    }
+                    return indicator;
+                };
+
+                // Configurar eventos de conexión
+                window.addEventListener('online', handleConnectionChange);
+                window.addEventListener('offline', handleConnectionChange);
+
+                // Configurar botón flotante para scroll to top
+                const createScrollToTopFab = () => {
+                    const fab = document.createElement('button');
+                    fab.className = 'fab d-none';
+                    fab.innerHTML = '↑';
+                    fab.setAttribute('aria-label', 'Volver arriba');
+                    fab.title = 'Volver arriba';
+
+                    fab.addEventListener('click', () => {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                        hapticFeedback('medium');
+                    });
+
+                    document.body.appendChild(fab);
+
+                    // Mostrar/ocultar según scroll
+                    window.addEventListener('scroll', () => {
+                        if (window.scrollY > 300) {
+                            fab.classList.remove('d-none');
+                        } else {
+                            fab.classList.add('d-none');
+                        }
+                    }, { passive: true });
+                };
+
+                createScrollToTopFab();
+
+                // Optimización de rendimiento móvil
+                const optimizeMobilePerformance = () => {
+                    // Reducir calidad de imágenes en conexiones lentas
+                    if ('connection' in navigator) {
+                        const connection = navigator.connection;
+                        if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
+                            // Aplicar lazy loading más agresivo
+                            const images = document.querySelectorAll('img');
+                            images.forEach(img => {
+                                img.loading = 'lazy';
+                                img.decoding = 'async';
+                            });
+                        }
+                    }
+
+                    // Optimizar animaciones según preferencias
+                    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                        document.body.classList.add('reduced-motion');
+                    }
+
+                    // Optimizar para dispositivos de baja potencia
+                    if ('deviceMemory' in navigator && navigator.deviceMemory < 4) {
+                        document.body.classList.add('low-memory-device');
+
+                        // Reducir complejidad visual
+                        const complexElements = document.querySelectorAll('.shadow-sm, .shadow');
+                        complexElements.forEach(el => {
+                            el.style.boxShadow = 'none';
+                        });
+                    }
+                };
+
+                optimizeMobilePerformance();
+
+                // Configurar cache de emergencia para offline
+                const setupOfflineCache = () => {
+                    // Cache básico usando localStorage
+                    const cacheKey = 'marca-offline-data';
+                    const cacheTimestamp = 'marca-cache-timestamp';
+                    const cacheExpiry = 30 * 60 * 1000; // 30 minutos
+
+                    // Guardar datos importantes en cache
+                    const cacheImportantData = () => {
+                        const data = {
+                            title: document.title,
+                            timestamp: Date.now(),
+                            trending: Array.from(document.querySelectorAll('.bg-light a')).map(a => a.textContent.trim()),
+                            mainNews: document.querySelector('.display-5')?.textContent || '',
+                        };
+
+                        try {
+                            localStorage.setItem(cacheKey, JSON.stringify(data));
+                            localStorage.setItem(cacheTimestamp, Date.now().toString());
+                        } catch (e) {
+                            console.log('Cache storage not available');
+                        }
+                    };
+
+                    // Cargar desde cache si offline
+                    const loadFromCache = () => {
+                        if (!navigator.onLine) {
+                            try {
+                                const cached = localStorage.getItem(cacheKey);
+                                const timestamp = localStorage.getItem(cacheTimestamp);
+
+                                if (cached && timestamp) {
+                                    const age = Date.now() - parseInt(timestamp);
+                                    if (age < cacheExpiry) {
+                                        const data = JSON.parse(cached);
+                                        showToast('Mostrando contenido guardado', 'info');
+                                        return data;
+                                    }
+                                }
+                            } catch (e) {
+                                console.log('Error loading cache');
+                            }
+                        }
+                        return null;
+                    };
+
+                    // Configurar cache automático
+                    if (navigator.onLine) {
+                        setTimeout(cacheImportantData, 2000);
+                    } else {
+                        loadFromCache();
+                    }
+                };
+
+                setupOfflineCache();
+
+                // Configurar analytics de rendimiento móvil
+                const trackMobilePerformance = () => {
+                    if ('performance' in window) {
+                        window.addEventListener('load', () => {
+                            setTimeout(() => {
+                                const perfData = performance.getEntriesByType('navigation')[0];
+                                const loadTime = perfData.loadEventEnd - perfData.loadEventStart;
+
+                                if (loadTime > 3000) {
+                                    console.log('⚠️ Tiempo de carga lento:', loadTime + 'ms');
+                                    // Aquí podrías enviar métricas a analytics
+                                } else {
+                                    console.log('✅ Tiempo de carga óptimo:', loadTime + 'ms');
+                                }
+                            }, 0);
+                        });
+                    }
+                };
+
+                trackMobilePerformance();
+
+                console.log('🚀 Experiencia móvil avanzada activada');
+                console.log('📱 PWA features habilitadas');
+                console.log('⚡ Optimizaciones de rendimiento aplicadas');
+                console.log('🎯 Touch gestures configurados');
+                console.log('🔄 Pull-to-refresh disponible');
+                console.log('📶 Detección de conexión activa');
+                console.log('💾 Cache offline configurado');
             }
         });
     </script>
